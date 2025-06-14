@@ -46,7 +46,7 @@ if query:
         summary = ans.get("text", "").strip()
         # If the summary does not mention the query term, treat as no match
         if query.lower() not in summary.lower():
-            st.warning("I'm sorry, I wasn't able to find that term. Please try searching for another financial term.")
+            st.warning("I'm sorry, I wasn't able to find that term. Please verify the spelling and try again with the specific financial term.")
         else:
             sentences = re.split(r'(?<=[\.\!?])\s+', summary)
             for sent in sentences:
@@ -62,7 +62,7 @@ if query:
         if "clarify" in message.lower():
             st.info(message)
         else:
-            st.warning("I'm sorry, I wasn't able to find that term. Please try searching for another financial term.")
+            st.warning("I'm sorry, I wasn't able to find that term. Please verify the spelling and try again with the specific financial term.")
 
     # Fallback for unexpected sources
     else:
